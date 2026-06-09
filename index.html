@@ -208,6 +208,13 @@ function clearAll(){
 
 populateUnivs();
 render();
+
+function fixTheadTop(){
+  var h=document.getElementById("sticky-top").offsetHeight;
+  document.querySelectorAll("thead th").forEach(function(el){el.style.top=h+"px";});
+}
+fixTheadTop();
+window.addEventListener("resize",fixTheadTop);
 </script>
 </body>
 </html>
