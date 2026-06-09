@@ -10,7 +10,8 @@ body{font-family:'Malgun Gothic','Apple SD Gothic Neo',sans-serif;font-size:14px
 .header{background:#1f3b6e;color:#fff;padding:18px 24px}
 .header h1{font-size:18px;font-weight:600;margin-bottom:4px}
 .header p{font-size:12px;opacity:.75}
-.search-area{background:#fff;border-bottom:1px solid #e0e4eb;padding:14px 24px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;position:sticky;top:0;z-index:10}
+.sticky-top{position:sticky;top:0;z-index:10;background:#fff}
+.search-area{background:#fff;border-bottom:1px solid #e0e4eb;padding:14px 24px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
 .search-area input[type=text]{flex:1;min-width:180px;padding:8px 12px;border:1px solid #c8cdd6;border-radius:6px;font-size:13px;outline:none}
 .search-area input[type=text]:focus{border-color:#1f3b6e}
 .search-area select{padding:8px 10px;border:1px solid #c8cdd6;border-radius:6px;font-size:13px;background:#fff;color:#1a1a1a;outline:none;cursor:pointer}
@@ -20,7 +21,7 @@ body{font-family:'Malgun Gothic','Apple SD Gothic Neo',sans-serif;font-size:14px
 .count-bar{padding:8px 24px;font-size:12px;color:#666;background:#f7f8fa;border-bottom:1px solid #e0e4eb}
 .count-bar span{font-weight:600;color:#1f3b6e}
 table{width:100%;border-collapse:collapse;background:#fff}
-thead th{background:#1f3b6e;color:#fff;padding:10px 12px;font-size:12px;font-weight:600;text-align:left;position:sticky;top:110px;z-index:5;white-space:nowrap}
+thead th{background:#1f3b6e;color:#fff;padding:10px 12px;font-size:12px;font-weight:600;text-align:left;position:sticky;top:0;z-index:5;white-space:nowrap}
 tbody tr:nth-child(even){background:#f9fafb}
 tbody tr:hover{background:#eef2ff}
 td{padding:9px 12px;font-size:12px;border-bottom:1px solid #eef0f4;vertical-align:top;line-height:1.5}
@@ -56,6 +57,7 @@ td:nth-child(5),td:nth-child(6),td:nth-child(7){display:none}
   <p>권역별 47개 대학, 1,358개 모집단위의 핵심과목·권장과목 정보</p>
 </div>
 
+<div class="sticky-top" id="sticky-top">
 <div class="search-area">
   <input type="text" id="kw" placeholder="대학명, 학과, 과목명 검색..." oninput="render()">
   <select id="sel-region" onchange="updateCities();render()">
@@ -73,8 +75,8 @@ td:nth-child(5),td:nth-child(6),td:nth-child(7){display:none}
   </select>
   <button onclick="clearAll()">초기화</button>
 </div>
-
 <div class="count-bar" id="count-bar">전체 <span id="cnt">-</span>개 모집단위</div>
+</div>
 
 <div style="overflow-x:auto">
 <table id="tbl">
